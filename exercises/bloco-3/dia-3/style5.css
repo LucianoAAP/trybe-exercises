@@ -30,7 +30,7 @@ li {
 li em {
     font-weight: bold;
 }
-#ling-prog li:nth-child(-n+3) {
+ul:nth-child(6) li:nth-child(-n+3) {
     color: blue;
 }
 #java {
