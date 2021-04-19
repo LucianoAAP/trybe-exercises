@@ -33,26 +33,26 @@ li em {
 ul:nth-child(6) li:nth-child(-n+3) {
     color: blue;
 }
-#java {
+ul:nth-child(6) li:nth-child(2), ul:nth-child(6) li:nth-child(3) {
     background-color: pink;
 }
-#aliados li:nth-child(1) a:hover {
+ul:nth-child(8) li:nth-child(1) a:hover {
     color: orange;
     font-weight: bold;
 }
-#aliados li:nth-child(2) a:hover {
+ul:nth-child(8) li:nth-child(2) a:hover {
     color: green;
     font-weight: bold;
 }
-#aliados li:nth-child(3) a:hover {
+ul:nth-child(8) li:nth-child(3) a:hover {
     color: black;
     font-weight: bold;
 }
-#aliados li:nth-child(4) a:hover {
+ul:nth-child(8) li:nth-child(4) a:hover {
     color: yellow;
     font-weight: bold;
 }
-#aliados li:nth-child(5) a:hover {
+ul:nth-child(8) li:nth-child(5) a:hover {
     color: green;
     font-weight: bold;
 }
