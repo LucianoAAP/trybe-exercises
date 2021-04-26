@@ -1,3 +1,6 @@
+
+// Quadrado
+
 let n=7;
 let quadrado = '';
 for (let index=1; index<=n; index++) {
@@ -7,12 +10,18 @@ for (let index=1; index<=n; index++) {
     console.log (quadrado);
 }
 console.log('========================');
+
+// Triângulo
+
 let triangulo='';
 for (let index = 1; index<=n; index++) {
     triangulo=triangulo+'*';
     console.log(triangulo);
 }
 console.log('========================');
+
+// Triângulo invertido
+
 let invertido ='';
 let index2=0;
 let espaco=' ';
@@ -23,6 +32,9 @@ for (let index=1; index<=n; index++) {
     invertido='';
 }
 console.log('========================');
+
+// Pirâmide
+
 let piramide = '';
 for (let index=1; index<=n; index++) {
     if (index%2===0) {
@@ -33,8 +45,11 @@ for (let index=1; index<=n; index++) {
         piramide='';
     }
 }
-let piramide2='';
 console.log('========================');
+
+// Pirâmide oca
+
+let piramide2='';
 for (let index=1; index<=n; index++) {
     if (index%2===0) {
         console.log(espaco.repeat(n));
