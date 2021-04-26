@@ -1,4 +1,4 @@
-let n=5;
+let n=7;
 let quadrado = '';
 for (let index=1; index<=n; index++) {
     quadrado=quadrado+'*';
@@ -31,5 +31,24 @@ for (let index=1; index<=n; index++) {
         piramide=piramide+espaco.repeat((n-index)/2)+asterisco.repeat(index)+espaco.repeat((n-index)/2);
         console.log(piramide);
         piramide='';
+    }
+}
+let piramide2='';
+console.log('========================');
+for (let index=1; index<=n; index++) {
+    if (index%2===0) {
+        console.log(espaco.repeat(n));
+    } else if (index===1) {
+        piramide2=espaco.repeat((n-1)/2)+asterisco+espaco.repeat((n-1)/2);
+        console.log(piramide2);
+        piramide2='';
+    } else if (index===n) {
+        piramide2=asterisco.repeat(index);
+        console.log(piramide2);
+        piramide2='';
+    } else {
+        piramide2=espaco.repeat((n-index)/2)+asterisco+espaco.repeat(index-2)+asterisco+espaco.repeat((n-index)/2);
+        console.log(piramide2);
+        piramide2='';
     }
 }
