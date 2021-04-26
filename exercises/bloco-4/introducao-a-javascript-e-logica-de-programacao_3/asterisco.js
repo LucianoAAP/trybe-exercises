@@ -22,3 +22,14 @@ for (let index=1; index<=n; index++) {
     console.log(invertido);
     invertido='';
 }
+console.log('========================');
+let piramide = '';
+for (let index=1; index<=n; index++) {
+    if (index%2===0) {
+        console.log(espaco.repeat(n));
+    } else {
+        piramide=piramide+espaco.repeat((n-index)/2)+asterisco.repeat(index)+espaco.repeat((n-index)/2);
+        console.log(piramide);
+        piramide='';
+    }
+}
