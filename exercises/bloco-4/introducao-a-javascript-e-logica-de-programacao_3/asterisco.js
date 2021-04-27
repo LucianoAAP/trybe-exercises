@@ -37,13 +37,11 @@ console.log('========================');
 
 let piramide = '';
 for (let index=1; index<=n; index++) {
-    if (index%2===0) {
-        console.log(espaco.repeat(n));
-    } else {
+    if (index%2!==0) {
         piramide=piramide+espaco.repeat((n-index)/2)+asterisco.repeat(index)+espaco.repeat((n-index)/2);
         console.log(piramide);
         piramide='';
-    }
+    } 
 }
 console.log('========================');
 
@@ -51,9 +49,7 @@ console.log('========================');
 
 let piramide2='';
 for (let index=1; index<=n; index++) {
-    if (index%2===0) {
-        console.log(espaco.repeat(n));
-    } else if (index===1) {
+    if (index===1) {
         piramide2=espaco.repeat((n-1)/2)+asterisco+espaco.repeat((n-1)/2);
         console.log(piramide2);
         piramide2='';
@@ -61,7 +57,7 @@ for (let index=1; index<=n; index++) {
         piramide2=asterisco.repeat(index);
         console.log(piramide2);
         piramide2='';
-    } else {
+    } else if (index%2!==0) {
         piramide2=espaco.repeat((n-index)/2)+asterisco+espaco.repeat(index-2)+asterisco+espaco.repeat((n-index)/2);
         console.log(piramide2);
         piramide2='';
