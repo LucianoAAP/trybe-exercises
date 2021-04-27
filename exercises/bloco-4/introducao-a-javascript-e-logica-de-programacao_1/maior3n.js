@@ -1,6 +1,6 @@
 let x=2;
-let y=3;
-let z=4;
+let y=2;
+let z=2;
 if (x>y && x>z) {
     console.log ('x');
 } else if (y>z && y>x) {
@@ -11,6 +11,8 @@ if (x>y && x>z) {
     console.log ('x e y');
 } else if (x==z && x>y) {
     console.log ('x e z');
-} else {
+} else if (y==z && y>x) {
     console.log ('y e z');
+} else {
+    console.log ('São todos iguais');
 }

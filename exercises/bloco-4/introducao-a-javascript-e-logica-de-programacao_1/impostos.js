@@ -22,5 +22,5 @@ if (sbase<=1903.98) {
 } else {
     ir=0.27*sbase-869.36;
 }
-let sbruto = sbase-ir;
-console.log (sbruto);
+let sliq = sbase-ir;
+console.log (sliq);
