@@ -1,1 +1,1 @@
-Aqui é exercises!
+Exercícios da Trybe
