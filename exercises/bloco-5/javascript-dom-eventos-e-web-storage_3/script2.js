@@ -101,3 +101,12 @@ function createDaysOfTheWeek() {
     }
   };
   document.querySelector('.task').addEventListener('click', selecionar);
+
+  function corNoDia (event) {
+    if (event.target.style.color !== 'green') {
+      event.target.style.color = 'green';
+    } else {
+      event.target.style.color = 'rgb(119,119,119)';
+    }
+  };
+diasDoMes.addEventListener('click', corNoDia);
