@@ -68,6 +68,16 @@ function createDaysOfTheWeek() {
     };
   };
 
+  let diasDoMes = document.querySelector('#days');
+    diasDoMes.addEventListener('mouseover', zoomIn);
+    diasDoMes.addEventListener('mouseout', zoomOut);
+  function zoomIn (event) {
+    event.target.style.fontWeight = 'bold';
+  };
+  function zoomOut (event) {
+    event.target.style.fontWeight = 'unset';
+  };
+
   function addTarefa(atividade) {
     let tarefa = document.createElement('span');
     tarefa.innerHTML = atividade;
@@ -75,14 +85,10 @@ function createDaysOfTheWeek() {
   };
   addTarefa('Cozinhar: ');
 
-  let diasDoMes = document.querySelectorAll('.day');
-  for (let index = 1; diasDoMes.length; index+=1) {
-    diasDoMes[index].addEventListener('mouseover', zoomIn);
-    diasDoMes[index].addEventListener('mouseout', zoomOut);
+  function corNaTarefa (cor) {
+    let legendaComCor = document.createElement('div');
+    legendaComCor.className = 'task';
+    legendaComCor.style.backgroundColor = cor;
+    document.querySelector('.my-tasks').appendChild(legendaComCor);
   };
-  function zoomIn (event) {
-      event.target.style.fontWeight = 'bold';
-  };
-  function zoomOut (event) {
-    event.target.style.fontWeight = 'unset';
-  };
+  corNaTarefa('green');
