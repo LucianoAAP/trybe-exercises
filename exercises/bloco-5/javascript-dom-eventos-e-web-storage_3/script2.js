@@ -46,9 +46,24 @@ function createDaysOfTheWeek() {
         }
       };
   };
-  function sextou(btn) {
+
+  function adicionaSexta(btn) {
       let sexta = document.createElement('button');
       sexta.innerHTML = btn;
+      sexta.id = 'btn-friday';
       document.querySelector('.buttons-container').appendChild(sexta);
   }
-  sextou('Sexta-feira');
+  adicionaSexta('Sexta-feira');
+
+  document.querySelector('#btn-friday').addEventListener('click', sextar);
+  function sextar() {
+    let sextasOriginal = [ 4, 11, 18, 25 ];
+    let sextas = document.querySelectorAll('.friday');
+    for (let index = 0; index < sextas.length; index += 1) {
+      if (sextas[index].innerText !== 'Sextou!') {
+        sextas[index].innerText = 'Sextou!';
+      } else {
+        sextas[index].innerText = sextasOriginal[index];
+      }
+    };
+  };
