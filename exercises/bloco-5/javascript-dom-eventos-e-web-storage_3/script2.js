@@ -92,3 +92,12 @@ function createDaysOfTheWeek() {
     document.querySelector('.my-tasks').appendChild(legendaComCor);
   };
   corNaTarefa('green');
+
+  function selecionar (event) {
+    if (event.target.className !== 'task selected') {
+      event.target.className = 'task selected'
+    } else {
+      event.target.className = 'task'
+    }
+  };
+  document.querySelector('.task').addEventListener('click', selecionar);
