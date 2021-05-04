@@ -67,3 +67,15 @@ function createDaysOfTheWeek() {
       }
     };
   };
+
+  let diasDoMes = document.querySelectorAll('.day');
+  for (let index = 1; diasDoMes.length; index+=1) {
+    diasDoMes[index].addEventListener('mouseover', zoomIn);
+    diasDoMes[index].addEventListener('mouseout', zoomOut);
+  };
+  function zoomIn () {
+      event.target.style.fontWeight = 'bold';
+  };
+  function zoomOut () {
+    event.target.style.fontWeight = 'unset';
+  };
