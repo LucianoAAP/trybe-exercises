@@ -68,14 +68,21 @@ function createDaysOfTheWeek() {
     };
   };
 
+  function addTarefa(atividade) {
+    let tarefa = document.createElement('span');
+    tarefa.innerHTML = atividade;
+    document.querySelector('.my-tasks').appendChild(tarefa);
+  };
+  addTarefa('Cozinhar: ');
+
   let diasDoMes = document.querySelectorAll('.day');
   for (let index = 1; diasDoMes.length; index+=1) {
     diasDoMes[index].addEventListener('mouseover', zoomIn);
     diasDoMes[index].addEventListener('mouseout', zoomOut);
   };
-  function zoomIn () {
+  function zoomIn (event) {
       event.target.style.fontWeight = 'bold';
   };
-  function zoomOut () {
+  function zoomOut (event) {
     event.target.style.fontWeight = 'unset';
   };
