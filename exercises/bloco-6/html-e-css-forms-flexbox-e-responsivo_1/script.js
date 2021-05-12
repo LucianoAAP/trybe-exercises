@@ -1,4 +1,5 @@
 let = selectState = document.querySelector('#state');
+let botaoClear = document.querySelector('#clear');
 let estados = {
     'AC': 'Acre',
     'AL': 'Alagoas',
@@ -32,5 +33,17 @@ let estados = {
 for (let index in estados) {
     let estado = document.createElement('option');
     estado.innerHTML = estados[index];
+    estado.value = index;
     selectState.appendChild(estado);
 }
+
+function limpar() {
+    let dadosInputs = document.querySelectorAll('input');
+    let textArea = document.querySelector('textarea');
+    textArea.value = '';
+    for (let index = 0; index < dadosInputs.length; index += 1) {
+        dadosInputs[index].value = '';
+    }
+}
+
+botaoClear.addEventListener('click', limpar);
