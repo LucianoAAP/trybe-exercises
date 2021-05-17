@@ -46,7 +46,7 @@ p strong {
 .card {
   border-radius: 5px;
   color: white;
-  display: none;
+  display: flex;
   flex-flow: row wrap;
   height: 200px;
   margin: 20px;
@@ -56,12 +56,38 @@ p strong {
 
 .card:nth-of-type(1) {
   background-color: #0fa36b;
+  display: none;
 }
 
 .card:nth-of-type(2) {
   background-color: #0255c2;
+  display: none;
 }
 
 .card:nth-of-type(3) {
   background-color: #41197f;
+}
+
+@media screen and (min-width: 500px) {
+  .card:nth-of-type(1) {
+    display: flex;
+  }
+}
+
+@media screen and (max-width: 1000px) and (min-width: 600px) {
+  .card:nth-of-type(2) {
+    display: flex;
+  }
+}
+
+@media screen and (min-width: 650px) and (max-width: 950px) {
+  .card:nth-of-type(3) {
+    display:none;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  p.trick {
+    color: black;
+  }
 }
