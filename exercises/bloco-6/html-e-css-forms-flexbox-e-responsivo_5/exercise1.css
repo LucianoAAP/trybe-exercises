@@ -35,3 +35,15 @@ p {
     max-width: 45%;
   }
 }
+
+@media screen and (min-width: 1300px) {
+  body {
+    background-color: cadetblue;
+    max-width: 1200px;
+    margin: 25px;
+  }
+
+  p {
+    font-size: 25px;
+  }
+}
