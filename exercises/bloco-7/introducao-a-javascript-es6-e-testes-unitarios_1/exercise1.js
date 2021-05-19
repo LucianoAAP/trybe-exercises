@@ -25,3 +25,22 @@ const testingScope = escopo => {
 }
 
 testingScope(true);
+
+const oddsAndEvens = [13, 3, 4, 10, 7, 2];
+
+// Seu código aqui.
+
+// let sorted = [];
+for (let index in oddsAndEvens) {
+  for (let index2 in oddsAndEvens) {
+    if (oddsAndEvens[index2] > oddsAndEvens[index]) {
+      let aux = oddsAndEvens[index2];
+      oddsAndEvens[index2] = oddsAndEvens[index];
+      oddsAndEvens[index] = aux;
+    }
+  }
+}
+
+console.log(oddsAndEvens);
+
+console.log(oddsAndEvens.sort((a, b) => a - b));
