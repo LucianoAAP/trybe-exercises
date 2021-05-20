@@ -81,3 +81,37 @@ const exists = (objeto, chave, valor) => {
 }
 
 exists(lesson3, 'turno', 'noite');
+
+
+// Crie uma função para contar quantos estudantes assistiram às aulas de Matemática. Use o objeto criado no exercício 5.
+
+const presencaMatematica = () => {
+  let cont = 0;
+  const lessons = Object.keys(allLessons);
+  for (let key in lessons) {
+    if (allLessons[lessons[key]].materia === 'Matemática') {
+      cont += allLessons[lessons[key]].numeroEstudantes;
+    }
+  }
+  return cont;
+}
+
+console.log(presencaMatematica());
+
+
+// Crie uma função que deverá retornar um objeto que representa o relatório do professor ou professora, as aulas que ele ou ela ministrou e o número total de estudantes. Use o objeto criado no exercício 5:
+
+const relatorio = professor => {
+  let aulas = [];
+  let estudantes = 0;
+  const lessons = Object.keys(allLessons);
+  for (let key in lessons) {
+    if (allLessons[lessons[key]].professor === professor) {
+      aulas.push(allLessons[lessons[key]].materia)
+      estudantes += allLessons[lessons[key]].numeroEstudantes;
+    }
+  }
+  return Object.assign({}, {professor, aulas, estudantes});
+}
+
+console.log(relatorio('Maria Clara'));
