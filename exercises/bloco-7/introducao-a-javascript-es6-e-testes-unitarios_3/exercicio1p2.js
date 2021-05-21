@@ -1,7 +1,7 @@
 const assert = require('assert');
 // escreva a função addOne aqui
 
-const addOne = () => {
+const addOne = myArray => {
   const newArray = [];
   for (let index in myArray) {
     newArray.push(myArray[index] + 1);

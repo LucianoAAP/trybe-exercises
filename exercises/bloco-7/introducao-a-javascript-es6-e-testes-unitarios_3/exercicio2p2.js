@@ -1,7 +1,7 @@
 const assert = require('assert');
 // escreva a função wordLengths aqui
 
-const wordLengths = () => {
+const wordLengths = words => {
   const tamanho = [];
   for (let index in words) {
     tamanho.push(words[index].length);
