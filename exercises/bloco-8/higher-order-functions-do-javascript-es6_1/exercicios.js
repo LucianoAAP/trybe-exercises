@@ -25,7 +25,7 @@ const verificar = (numeroSorteado, numero) => {
 }
 
 const sorteio = (numero, callback) => {
-  const numeroSorteado = Math.round(Math.random() * 5);
+  const numeroSorteado = Math.floor(Math.random() * 5 + 1);
   return callback(numeroSorteado, numero);
 }
 
