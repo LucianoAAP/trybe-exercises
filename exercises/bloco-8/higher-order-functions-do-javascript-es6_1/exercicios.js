@@ -15,3 +15,18 @@ const newEmployee = (nome) => {
 };
 
 console.log(newEmployees(newEmployee));
+
+const verificar = (numeroSorteado, numero) => {
+  if (numero === numeroSorteado) {
+    return 'Parabéns você ganhou';
+  } else {
+    return 'Tente novamente';
+  }
+}
+
+const sorteio = (numero, callback) => {
+  const numeroSorteado = Math.round(Math.random()*5);
+  return callback(numeroSorteado, numero);
+}
+
+console.log(sorteio(4, verificar));
