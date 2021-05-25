@@ -29,7 +29,7 @@ const danoEManaMage = () => {
     mageAttack.manaSpent = 0;
   } else {
     mageAttack.dmg = Math.floor(Math.random() * (mage.intelligence * 2 - mage.intelligence + 1) ) + mage.intelligence;
-    manaSpent = 0; 
+    mageAttack.manaSpent = 15; 
   }
   return mageAttack;
 }
