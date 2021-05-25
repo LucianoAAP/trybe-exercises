@@ -42,7 +42,9 @@ const gameActions = {
   },
   turnoMage: (danoEManaMage) => {
     const dMMage = danoEManaMage();
-    dragon.healthPoints -= dMMage.dmg;
+    if (typeof dMMage.dmg === 'number') {
+      dragon.healthPoints -= dMMage.dmg;
+    }
     mage.damage = dMMage.dmg;
     mage.mana -= dMMage.manaSpent;
   },
