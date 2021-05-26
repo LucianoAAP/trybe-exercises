@@ -189,3 +189,14 @@ function someBookWasReleaseOnThe80s() {
 }
 
 assert.strictEqual(someBookWasReleaseOnThe80s(), expectedResult4);
+
+//  Faça uma função que retorne true , caso nenhum author tenha nascido no mesmo ano, e false , caso contrário. 
+
+const expectedResult5 = false;
+
+function authorUnique() {
+  // escreva seu código aqui
+  return books.every((book) => !books.some((livroDaVez) => livroDaVez.name !== book.name && livroDaVez.author.birthYear === book.author.birthYear));
+}
+
+assert.strictEqual(authorUnique(), expectedResult5);
