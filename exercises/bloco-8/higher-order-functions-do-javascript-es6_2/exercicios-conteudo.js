@@ -47,11 +47,39 @@ const nomes = ['Mateus', 'José', 'Ana', 'Cláudia', 'Bruna'];
 
 const hasName = (arr, name) => {
   //Adicione seu código aqui
-  if (arr.some((nome) => nome === name)) {
-    return true;
-  } else {
-    return false;
-  }
+  return arr.some((nome) => nome === name);
 }
 
 console.log(hasName(nomes, 'Ana'));
+
+const people = [
+  { name: 'Mateus', age: 18 },
+  { name: 'José', age: 16 },
+  { name: 'Ana', age: 23 },
+  { name: 'Cláudia', age: 20 },
+  { name: 'Bruna', age: 19 },
+];
+
+const verifyAges = (arr, minimumAge) => {
+  //Adicione seu código aqui
+  return arr.every((nome) => nome.age >= minimumAge);
+}
+
+console.log(verifyAges(people, 18));
+
+const peoples = [
+  { name: 'Mateus', age: 18 },
+  { name: 'José', age: 16 },
+  { name: 'Ana', age: 23 },
+  { name: 'Cláudia', age: 20 },
+  { name: 'Bruna', age: 19 },
+];
+
+// Adicione se código aqui
+peoples.sort((pessoaA, pessoaB) => pessoaA.age - pessoaB.age);
+
+console.log(peoples);
+
+peoples.sort((pessoaA, pessoaB) => pessoaB.age - pessoaA.age);
+
+console.log(peoples);
