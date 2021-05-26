@@ -41,4 +41,17 @@ function findMusic(id) {
   return musicas.find((musica) => musica.id === '31031685');
 }
 
-console.log(findMusic('31031685'))
+console.log(findMusic('31031685'));
+
+const nomes = ['Mateus', 'José', 'Ana', 'Cláudia', 'Bruna'];
+
+const hasName = (arr, name) => {
+  //Adicione seu código aqui
+  if (arr.some((nome) => nome === name)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+console.log(hasName(nomes, 'Ana'));
