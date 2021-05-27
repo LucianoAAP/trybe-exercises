@@ -171,35 +171,36 @@ assert.deepStrictEqual(fantasyOrScienceFiction(), expectedResult3);
 
 // Dica: use as funções filter e sort
 
-// const expectedResult4 = [
-//   {
-//     id: 6,
-//     name: 'O Chamado de Cthulhu',
-//     genre: 'Terror',
-//     author: { name: 'H. P. Lovecraft', birthYear: 1890 },
-//     releaseYear: 1928,
-//   },
-//   {
-//     id: 3,
-//     name: 'Fundação',
-//     genre: 'Ficção Científica',
-//     author: { name: 'Isaac Asimov', birthYear: 1920 },
-//     releaseYear: 1951,
-//   },
-//   {
-//     id: 2,
-//     name: 'O Senhor dos Anéis',
-//     genre: 'Fantasia',
-//     author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
-//     releaseYear: 1954,
-//   },
-// ];
+const expectedResult4 = [
+  {
+    id: 6,
+    name: 'O Chamado de Cthulhu',
+    genre: 'Terror',
+    author: { name: 'H. P. Lovecraft', birthYear: 1890 },
+    releaseYear: 1928,
+  },
+  {
+    id: 3,
+    name: 'Fundação',
+    genre: 'Ficção Científica',
+    author: { name: 'Isaac Asimov', birthYear: 1920 },
+    releaseYear: 1951,
+  },
+  {
+    id: 2,
+    name: 'O Senhor dos Anéis',
+    genre: 'Fantasia',
+    author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
+    releaseYear: 1954,
+  },
+];
 
-// function oldBooksOrdered() {
-//   // escreva seu código aqui
-// }
+function oldBooksOrdered() {
+  // escreva seu código aqui
+  return books.filter((book) => 2021 - book.releaseYear >= 60).sort((bookA, bookB) => bookA.releaseYear - bookB.releaseYear);
+}
 
-// assert.deepStrictEqual(oldBooksOrdered(), expectedResult4);
+assert.deepStrictEqual(oldBooksOrdered(), expectedResult4);
 
 // // 5 - Crie um array em ordem alfabética apenas com os nomes de todas as pessoas autoras de ficção científica ou fantasia. 
 
