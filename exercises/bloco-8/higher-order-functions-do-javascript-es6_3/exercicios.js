@@ -64,6 +64,7 @@ const books = [
 ];
 
 // Adicione o código do exercício aqui:
+
 // 1 - Crie um array com strings no formato NOME_DO_LIVRO - GÊNERO_DO_LIVRO - NOME_DA_PESSOA_AUTORA
 
 // Dica: Use a função map
@@ -79,6 +80,7 @@ const expectedResult1 = [
 
 function formatedBookNames() {
   // escreva seu código aqui
+  return books.map((book) => `${book.name} - ${book.genre} - ${book.author.name}`);
 }
 
 assert.deepStrictEqual(formatedBookNames(), expectedResult1);
@@ -124,115 +126,114 @@ assert.deepStrictEqual(nameAndAge(), expectedResult2);
 
 // Dica: use as função filter ;
 
-const expectedResult3 = [
-  { 
-    id: 1,
-    name: 'As Crônicas de Gelo e Fogo',
-    genre: 'Fantasia',
-    author: { name: 'George R. R. Martin', birthYear: 1948 },
-    releaseYear: 1991
-  },
-  {
-    id: 2,
-    name: 'O Senhor dos Anéis',
-    genre: 'Fantasia',
-    author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
-    releaseYear: 1954
-  },
-  {
-    id: 3,
-    name: 'Fundação',
-    genre: 'Ficção Científica',
-    author: { name: 'Isaac Asimov', birthYear: 1920 },
-    releaseYear: 1951
-  },
-  {
-    id: 4,
-    name: 'Duna',
-    genre: 'Ficção Científica',
-    author: { name: 'Frank Herbert', birthYear: 1920 },
-    releaseYear: 1965
-  }
-];
+// const expectedResult3 = [
+//   { 
+//     id: 1,
+//     name: 'As Crônicas de Gelo e Fogo',
+//     genre: 'Fantasia',
+//     author: { name: 'George R. R. Martin', birthYear: 1948 },
+//     releaseYear: 1991
+//   },
+//   {
+//     id: 2,
+//     name: 'O Senhor dos Anéis',
+//     genre: 'Fantasia',
+//     author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
+//     releaseYear: 1954
+//   },
+//   {
+//     id: 3,
+//     name: 'Fundação',
+//     genre: 'Ficção Científica',
+//     author: { name: 'Isaac Asimov', birthYear: 1920 },
+//     releaseYear: 1951
+//   },
+//   {
+//     id: 4,
+//     name: 'Duna',
+//     genre: 'Ficção Científica',
+//     author: { name: 'Frank Herbert', birthYear: 1920 },
+//     releaseYear: 1965
+//   }
+// ];
 
-function fantasyOrScienceFiction() {
-  // escreva seu código aqui
-}
+// function fantasyOrScienceFiction() {
+//   // escreva seu código aqui
+// }
 
-assert.deepStrictEqual(fantasyOrScienceFiction(), expectedResult3);
+// assert.deepStrictEqual(fantasyOrScienceFiction(), expectedResult3);
 
 // 4 - Crie um array ordenado pelos livros com mais de 60 anos de publicação e ordene-o pelo livro mais velho.
 
 // Dica: use as funções filter e sort
 
-const expectedResult4 = [
-  {
-    id: 6,
-    name: 'O Chamado de Cthulhu',
-    genre: 'Terror',
-    author: { name: 'H. P. Lovecraft', birthYear: 1890 },
-    releaseYear: 1928,
-  },
-  {
-    id: 3,
-    name: 'Fundação',
-    genre: 'Ficção Científica',
-    author: { name: 'Isaac Asimov', birthYear: 1920 },
-    releaseYear: 1951,
-  },
-  {
-    id: 2,
-    name: 'O Senhor dos Anéis',
-    genre: 'Fantasia',
-    author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
-    releaseYear: 1954,
-  },
-];
+// const expectedResult4 = [
+//   {
+//     id: 6,
+//     name: 'O Chamado de Cthulhu',
+//     genre: 'Terror',
+//     author: { name: 'H. P. Lovecraft', birthYear: 1890 },
+//     releaseYear: 1928,
+//   },
+//   {
+//     id: 3,
+//     name: 'Fundação',
+//     genre: 'Ficção Científica',
+//     author: { name: 'Isaac Asimov', birthYear: 1920 },
+//     releaseYear: 1951,
+//   },
+//   {
+//     id: 2,
+//     name: 'O Senhor dos Anéis',
+//     genre: 'Fantasia',
+//     author: { name: 'J. R. R. Tolkien', birthYear: 1892 },
+//     releaseYear: 1954,
+//   },
+// ];
 
-function oldBooksOrdered() {
-  // escreva seu código aqui
-}
+// function oldBooksOrdered() {
+//   // escreva seu código aqui
+// }
 
-assert.deepStrictEqual(oldBooksOrdered(), expectedResult4);
+// assert.deepStrictEqual(oldBooksOrdered(), expectedResult4);
 
-// 5 - Crie um array em ordem alfabética apenas com os nomes de todas as pessoas autoras de ficção científica ou fantasia. 
+// // 5 - Crie um array em ordem alfabética apenas com os nomes de todas as pessoas autoras de ficção científica ou fantasia. 
 
-const expectedResult5 = [
-  'Frank Herbert',
-  'George R. R. Martin',
-  'Isaac Asimov',
-  'J. R. R. Tolkien',
-];
+// const expectedResult5 = [
+//   'Frank Herbert',
+//   'George R. R. Martin',
+//   'Isaac Asimov',
+//   'J. R. R. Tolkien',
+// ];
 
-function fantasyOrScienceFictionAuthors() {
-  // escreva seu código aqui
-}
+// function fantasyOrScienceFictionAuthors() {
+//   // escreva seu código aqui
+// }
 
-assert.deepStrictEqual(fantasyOrScienceFictionAuthors(), expectedResult5);
+// assert.deepStrictEqual(fantasyOrScienceFictionAuthors(), expectedResult5);
 
-// 6 - Crie um array com o nome de todos os livros com mais de 60 anos de publicação. 
+// // 6 - Crie um array com o nome de todos os livros com mais de 60 anos de publicação. 
 
-const expectedResult6 = [
-  'O Senhor dos Anéis',
-  'Fundação',
-  'O Chamado de Cthulhu',
-];
+// const expectedResult6 = [
+//   'O Senhor dos Anéis',
+//   'Fundação',
+//   'O Chamado de Cthulhu',
+// ];
 
-function oldBooks() {
-  // escreva seu código aqui
-}
+// function oldBooks() {
+//   // escreva seu código aqui
+// }
 
-assert.deepStrictEqual(oldBooks(), expectedResult6);
+// assert.deepStrictEqual(oldBooks(), expectedResult6);
 
-// 7 - Encontre o nome do livro escrito pela pessoa cujo nome registrado começa com três iniciais.
+// // 7 - Encontre o nome do livro escrito pela pessoa cujo nome registrado começa com três iniciais.
 
-// Dica: cada inicial termina com um ponto.
+// // Dica: cada inicial termina com um ponto.
 
-const expectedResult7 = 'O Senhor dos Anéis';
+// const expectedResult7 = 'O Senhor dos Anéis';
 
-function authorWith3DotsOnName() {
-  // escreva seu código aqui
-}
+// function authorWith3DotsOnName() {
+//   // escreva seu código aqui
+// }
 
-assert.deepStrictEqual(authorWith3DotsOnName(), expectedResult7);
-
+// assert.deepStrictEqual(authorWith3DotsOnName(), expectedResult7);
