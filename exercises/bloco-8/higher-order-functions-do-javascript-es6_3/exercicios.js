@@ -243,6 +243,7 @@ const expectedResult7 = 'O Senhor dos Anéis';
 function authorWith3DotsOnName() {
   // escreva seu código aqui
   return books.filter((book) => book.author.name.split('.').length === 4)[0].name;
+  //return books.find((book) => book.author.name.split('.').length === 4).name; também funciona
 }
 
 assert.deepStrictEqual(authorWith3DotsOnName(), expectedResult7);
