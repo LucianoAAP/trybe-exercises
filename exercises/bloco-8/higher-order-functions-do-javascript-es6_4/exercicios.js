@@ -118,19 +118,23 @@ assert.deepStrictEqual(longestNamedBook(), expectedResult4);
 
 // 5 - Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula. 
 
-// const assert = require('assert');
+const names = [
+  'Aanemarie', 'Adervandes', 'Akifusa',
+  'Abegildo', 'Adicellia', 'Aladonata',
+  'Abeladerco', 'Adieidy', 'Alarucha',
+];
 
-// const names = [
-//   'Aanemarie', 'Adervandes', 'Akifusa',
-//   'Abegildo', 'Adicellia', 'Aladonata',
-//   'Abeladerco', 'Adieidy', 'Alarucha',
-// ];
+function containsA() {
+  // escreva seu código aqui
+  return names.reduce((accumulator, current) => {
+    for (let index = 0; index < current.length; index += 1) {
+      current[index].toLowerCase() === 'a' ? accumulator += 1 : accumulator = accumulator
+    }
+    return accumulator;
+  }, 0);
+}
 
-// function containsA() {
-//   // escreva seu código aqui
-// }
-
-// assert.deepStrictEqual(containsA(), 20);
+assert.deepStrictEqual(containsA(), 20);
 
 // 6. - Agora vamos criar um novo array de objetos a partir das informações abaixo, onde cada objeto terá o formato { name: nome do aluno, average: media das notas } . Para isso vamos assumir que a posição 0 de notas refere-se ao aluno na posição 0 de alunos , aqui além de reduce será necessário utilizar também a função map . Dica: Você pode acessar o index do array dentro de map , e você pode ver o objeto esperado na constante expected . 
 
