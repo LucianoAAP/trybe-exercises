@@ -107,13 +107,14 @@ assert.strictEqual(averageAge(), expectedResult3);
 
 // 4 - Encontre o livro com o maior nome. 
 
-// const expectedResult4 = 'As Crônicas de Gelo e Fogo'; 
+const expectedResult4 = 'As Crônicas de Gelo e Fogo'; 
 
-// function longestNamedBook() {
-//   // escreva seu código aqui
-// }
+function longestNamedBook() {
+  // escreva seu código aqui
+  return books.reduce((accumulator, current) => current.name.length > accumulator.length ? accumulator = current.name : accumulator = accumulator, '');
+}
 
-// assert.deepStrictEqual(longestNamedBook(), expectedResult4);
+assert.deepStrictEqual(longestNamedBook(), expectedResult4);
 
 // 5 - Dada o array de nomes, retorne a quantidade de vezes em que aparecem a letra a maiúscula ou minúscula. 
 
