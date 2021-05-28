@@ -1,6 +1,7 @@
 // 1 - Dada uma matriz de matrizes, transforme em uma única matriz. 
 
 const assert = require('assert');
+const { cpuUsage } = require('process');
 
 const arrays = [
   ['1', '2', '3'],
@@ -95,13 +96,14 @@ assert.strictEqual(reduceNames(), expectedResult2);
 
 //  3 - Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
 
-// const expectedResult3 = 43;
+const expectedResult3 = 43;
 
-// function averageAge() {
-//   // escreva seu código aqui
-// }
+function averageAge() {
+  // escreva seu código aqui
+  return (books.reduce((accumulator, current) => accumulator += current.releaseYear - current.author.birthYear, 0)) / books.length;
+}
 
-// assert.strictEqual(averageAge(), expectedResult3);
+assert.strictEqual(averageAge(), expectedResult3);
 
 // 4 - Encontre o livro com o maior nome. 
 
