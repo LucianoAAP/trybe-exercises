@@ -84,13 +84,14 @@ const books = [
 
 // 2 - Crie uma string com os nomes de todas as pessoas autoras.
 
-// const expectedResult2 = 'George R. R. Martin J. R. R. Tolkien Isaac Asimov Frank Herbert Stephen King H. P. Lovecraft';
+const expectedResult2 = "George R. R. Martin, J. R. R. Tolkien, Isaac Asimov, Frank Herbert, Stephen King, H. P. Lovecraft.";
 
-// function averageAge() {
-//   // escreva seu código aqui
-// }
+function reduceNames() {
+  // escreva seu código aqui
+  return `${books.reduce((accumulator, current) => current === books[0] ? accumulator = current.author.name : `${accumulator}, ${current.author.name}`, '')}.`;
+}
 
-// assert.strictEqual(averageAge(), expectedResult2);
+assert.strictEqual(reduceNames(), expectedResult2);
 
 //  3 - Calcule a média de idade que as pessoas autoras tinham quando seus respectivos livros foram lançados.
 
