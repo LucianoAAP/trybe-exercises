@@ -10,13 +10,12 @@ const arrays = [
 
 function flatten() {
   // escreva seu código aqui
+  return arrays.reduce((accumulator, current) => accumulator.concat(current), []);
 }
 
 assert.deepStrictEqual(flatten(), ['1', '2', '3', true, 4, 5, 6]);
 
 // Para os exercícios 2, 3 e 4 considere o seguinte array: 
-
-const assert = require('assert');
 
 const books = [
   {
@@ -85,7 +84,7 @@ const books = [
 
 // 2 - Crie uma string com os nomes de todas as pessoas autoras.
 
-// const expectedResult2 = 43;
+// const expectedResult2 = 'George R. R. Martin J. R. R. Tolkien Isaac Asimov Frank Herbert Stephen King H. P. Lovecraft';
 
 // function averageAge() {
 //   // escreva seu código aqui
@@ -104,6 +103,8 @@ const books = [
 // assert.strictEqual(averageAge(), expectedResult3);
 
 // 4 - Encontre o livro com o maior nome. 
+
+// const expectedResult4 = 'As Crônicas de Gelo e Fogo'; 
 
 // function longestNamedBook() {
 //   // escreva seu código aqui
