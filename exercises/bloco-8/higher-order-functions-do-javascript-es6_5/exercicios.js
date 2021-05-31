@@ -131,3 +131,11 @@ const shipLength = ({name, length, measurementUnit}) => `${name} is ${length} ${
 assert.strictEqual(shipLength(ships[0]), 'Titanic is 269.1 meters long');
 assert.strictEqual(shipLength(ships[1]), 'Queen Mary 2 is 1132 feet long');
 assert.strictEqual(shipLength(ships[2]), 'Yamato is 256 meters long');
+
+// escreva greet abaixo
+
+const greet = (name, greeting = 'Hi') => `${greeting} ${name}`;
+
+assert.strictEqual(greet('John'), 'Hi John');
+assert.strictEqual(greet('John', 'Good morning'), 'Good morning John');
+assert.strictEqual(greet('Isabela', 'Oi'), 'Oi Isabela');
