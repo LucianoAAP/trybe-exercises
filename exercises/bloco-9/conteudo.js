@@ -14,3 +14,19 @@ const getUser = (callback) => {
 
 assert.strictEqual(getUser(userFullName), "Hello! My name is Ivan Ivanovich"); // complete a chamada da função de getUser
 assert.strictEqual(getUser(userNationality), "Ivan is Russian"); // complete a chamada da função de getUser
+
+const delay = (maxMilliseconds = 5000) => Math.floor(Math.random() * maxMilliseconds);
+
+const getUser2 = (callback) => {
+  setTimeout(() => {
+    const user = {
+      firstName: "Ivan",
+      lastName: "Ivanovich",
+      nationality: "Russian",
+    };
+    console.log(callback(user));
+  }, delay());
+};
+
+getUser2(userFullName); // deve imprimir "Hello! My name is Ivan Ivanovich" depois de um certo tempo
+getUser2(userNationality); // deve imprimir "Ivan is Russian" depois de um certo tempo
