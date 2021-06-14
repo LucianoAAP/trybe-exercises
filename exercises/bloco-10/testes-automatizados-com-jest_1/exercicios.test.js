@@ -1,4 +1,5 @@
-const { techList, hydrate } = require('./exercicios.js');
+const { TestWatcher } = require('@jest/core');
+const { techList, hydrate, searchEmployee } = require('./exercicios.js');
 
 describe('Testa a função techList', () => {
   it('Testa se a função techList é definida', () => {
@@ -49,5 +50,18 @@ describe('Testa a função hydrate', () => {
     expect(hydrate('2 shots de tequila, 2 cervejas e 1 corote')).toBe('5 copos de água');
     expect(hydrate('1 copo de catuaba, 1 cervejas e 1 copo de vinho')).toBe('3 copos de água');
     expect(hydrate('4 caipirinhas e 2 cervejas')).toBe('6 copos de água');
+  });
+});
+
+describe('Testa a função searchEmployee', () => {
+  test('Testa se a função existe', () => expect(searchEmployee).toBeDefined());
+  test('Testa se é uma função', () => expect(typeof searchEmployee).toBe('function'));
+  test('Retorna o erro ao receber ID inválido', () => expect(searchEmployee('1234', 'firstname')).toBe('ID não identificada'));
+  test('Retorna o erro ao receber um detalhe inválido', () => expect(searchEmployee('8579-6', 'secondName')).toBe('Informação indisponível'));
+  test('Testa os resultados válidos', () => {
+    expect(searchEmployee('8579-6', 'firstName')).toBe('Ana');
+    expect(searchEmployee('5569-4', 'lastName')).toBe('Jobs');
+    expect(searchEmployee('4456-4', 'specialities')).toEqual(['Context API', 'RTL', 'Bootstrap']);
+    expect(searchEmployee('4678-2', 'id')).toBe('4678-2');
   });
 });
