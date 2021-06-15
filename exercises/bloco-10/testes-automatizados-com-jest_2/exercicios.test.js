@@ -1,5 +1,8 @@
-const { uppercase } = require('./exercicios.js');
 const { describe, test, it } = require('@jest/globals');
+
+const uppercase = (str, callback) => {
+  callback(str.toUpperCase());
+};
 
 describe('Testa uppercase', () => {
   it('should be upper case', (done) => {
