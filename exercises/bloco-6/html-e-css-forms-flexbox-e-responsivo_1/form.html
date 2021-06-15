@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form action="" method="GET">
+        <fieldset>
+            <input type="text" name="Nome" id="name" required maxlength="40" placeholder="Nome completo">
+            <br>
+            <input type="email" name="Email" required maxlength="50" placeholder="Email">
+            <input type="text" name="CPF" required maxlength="11" placeholder="CPF">
+            <br>
+            <input type="text" name="Endereço" required maxlength="200" placeholder="Endereço">
+            <input type="radio" name="Tipo" required>Casa
+            <input type="radio" name="Tipo" required>Apartamento
+            <br>
+            <input type="text" name="Cidade" required maxlength="28" placeholder="Cidade">
+            <label for="state">Estado</label>
+            <select name="Estado" id="state"></select>
+        </fieldset>
+        <fieldset>
+            <textarea name="Resumo do Currículo" id="" cols="100" rows="10" placeholder="Fale um pouco sobre você" required maxlength="1000"></textarea>
+            <input type="text" name="Cargo" required maxlength="40" placeholder="Cargo">
+            <input type="text" name="Descrição do cargo" required maxlength="500" placeholder="Descrição do cargo">
+            <label for="data">Data de início</label>
+            <input type="date" id="data"> <!-- input de texto para data é muito convoluto e o do gabarito ainda está incompleto, logo usei type="date" (afinal, ele existe) -->
+        </fieldset>
+        <button type="button" id="clear">Limpar</button>
+        <button type="submit">Enviar</button>
+    </form>
+    <script src="script.js"></script>
+</body>
+</html>
