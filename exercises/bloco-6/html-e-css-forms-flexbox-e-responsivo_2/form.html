@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Formulário</title>
+    <!-- CSS only -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-wEmeIV1mKuiNpC+IOBjI7aAzPcEZeedi5yW5f2yOq55WWLwNGmvvx4Um1vskeMj0" crossorigin="anonymous">
+    <link rel="stylesheet" href="DatePickerX/dist/css/DatePickerX.min.css">
+</head>
+<body>
+    <form action="" method="GET" class="js-form form">
+        <fieldset>
+            <input type="text" name="Nome" id="name" class="form__input form-control" required maxlength="40" placeholder="Nome completo">
+            <br>
+            <input type="email" name="Email" class="form__input form-control" required maxlength="50" placeholder="Email">
+            <input type="text" name="CPF" class="form__input form-control" required maxlength="11" placeholder="CPF">
+            <br>
+            <input type="text" name="Endereço" class="form__input form-control" required maxlength="200" placeholder="Endereço">
+            <input type="radio" name="Tipo" class="form__radio" required>Casa
+            <input type="radio" name="Tipo" class="form__radio" required>Apartamento
+            <br>
+            <input type="text" name="Cidade" class="form__input form-control" required maxlength="28" placeholder="Cidade">
+            <label for="state">Estado</label>
+            <select name="Estado" id="state"></select>
+        </fieldset>
+        <fieldset>
+            <textarea name="Resumo do Currículo" class="form__textarea form-control" id="" cols="100" rows="10" placeholder="Fale um pouco sobre você" required maxlength="1000"></textarea>
+            <br>
+            <input type="text" name="Cargo" class="form__input form-control" required maxlength="40" placeholder="Cargo">
+            <input type="text" name="Descrição do cargo" class="form__input form-control" required maxlength="500" placeholder="Descrição do cargo">
+            <label for="data">Data de início</label>
+            <input type="text" class="form__input form-control" id="data">
+        </fieldset>
+        <button type="button" id="clear">Limpar</button>
+        <button type="submit" class="form__btn btn btn-primary">Enviar</button>
+    </form>
+    <!-- refatorar para validação -->
+    <script src="DatePickerX/dist/js/DatePickerX.min.js"></script>
+    <script src="Just-validate/dist/js/just-validate.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
