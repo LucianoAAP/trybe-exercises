@@ -1,0 +1,22 @@
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 10px;
+}
+
+@media screen and (min-width: 800px) {
+  h2 {
+    color: blue;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  h2 {
+    text-align: center;
+  }
+}
