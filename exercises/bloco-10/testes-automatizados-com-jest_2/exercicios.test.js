@@ -38,4 +38,15 @@ const users = {
   describe('Testa getUserName', () => {
     it('should work', () => getUserName(4).then((name) => expect(name).toBe('Mark')));
     it('should not work', () => getUserName(3).catch((name) => expect(name).toEqual({ error: 'User with 3 not found.'})));
+    it('should work with async/await', async() => {
+      const name = await getUserName(4);
+      expect(name).toBe('Mark');
+    });
+    it('should not work with async/await', async() => {
+      try {
+        await getUserName(3)
+      } catch (error) {
+        expect(error).toEqual({ error: 'User with 3 not found.'});
+    }
+    });
   });
