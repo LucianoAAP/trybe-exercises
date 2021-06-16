@@ -1,4 +1,3 @@
-const { expect } = require('@jest/globals');
 const exercicios = require('./exercicios.js');
 jest.mock('./exercicios');
 
