@@ -17,3 +17,15 @@ describe('Trabalha multiplicar', () => {
     expect(math.multiplicar()).toBe(10);
   });
 });
+
+jest.mock("./math");
+
+describe('Trabalha somar', () => {
+  test('Testa e mocka somar', () => {
+    math.somar.mockImplementation((a, b) => a + b);
+    math.somar(1, 2);
+    expect(math.somar).toHaveBeenCalled();
+    expect(math.somar).toHaveBeenCalledWith(1, 2);
+    expect(math.somar(1, 2)).toBe(3);
+  });
+});
