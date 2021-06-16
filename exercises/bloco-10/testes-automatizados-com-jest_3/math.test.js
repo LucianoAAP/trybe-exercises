@@ -29,3 +29,16 @@ describe('Trabalha somar', () => {
     expect(math.somar(1, 2)).toBe(3);
   });
 });
+
+describe('Trabalha dividir', () => {
+  test('Testa e mocka dividir', () => {
+    math.dividir.mockReturnValue(15).mockReturnValueOnce(2).mockReturnValueOnce(5);
+    expect(math.dividir()).toBe(2);
+    expect(math.dividir).toHaveBeenCalledTimes(1);
+    expect(math.dividir()).toBe(5);
+    expect(math.dividir).toHaveBeenCalledTimes(2);
+    expect(math.dividir()).toBe(15);
+    expect(math.dividir).toHaveBeenCalledTimes(3);
+    expect(math.dividir).toHaveBeenCalled();
+  });
+});
