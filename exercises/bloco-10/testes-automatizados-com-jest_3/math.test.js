@@ -1,4 +1,3 @@
-const { expect } = require('@jest/globals');
 const math = require('./math.js');
 
 describe('Trabalha subtrair', () => {
