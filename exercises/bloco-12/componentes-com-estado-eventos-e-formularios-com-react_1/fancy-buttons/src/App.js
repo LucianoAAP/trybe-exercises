@@ -7,11 +7,31 @@ class App extends React.Component {
     this.testClick1.bind(this);
     this.testClick2.bind(this);
     this.testClick3.bind(this);
+    this.state = {
+      Teste1: 0,
+      Teste2: 0,
+      Teste3: 0,
+    }
   }
 
-  testClick1 = () => console.log('Teste 1');
-  testClick2 = () => console.log('Teste 2');
-  testClick3 = () => console.log('Teste 3');
+  testClick1 = () => {
+    this.setState((previous, _prop) => ({
+      Teste1: previous.Teste1 + 1
+    }));
+    console.log(this.state.Teste1);
+  };
+  testClick2 = () => {
+    this.setState((previous, _prop) => ({
+      Teste2: previous.Teste2 + 1
+    }));
+    console.log(this.state.Teste2);
+  };
+  testClick3 = () => {
+    this.setState((previous, _prop) => ({
+      Teste3: previous.Teste3 + 1
+    }));
+    console.log(this.state.Teste3);
+  };
 
   render() {
     return (
