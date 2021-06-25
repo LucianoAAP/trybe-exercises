@@ -4,22 +4,28 @@ import './App.css';
 class App extends React.Component {
   constructor () {
     super();
-    this.handleInput = this.handleInput.bind(this);
+    this.handleChange = this.handleChange.bind(this);
     this.state = {
-      inInput: '',
+      Escreva: '',
+      Selecione: '',
     }
   }
 
-  handleInput({target}) {
-    this.setState({ inInput: target.value });
+  handleChange({ target }) {
+    const { name } = target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+  
+    this.setState({
+      [name]: value,
+    });
   }
 
   render() {
     return (
       <form>
-        <select></select>
-        <input type='checkbox' />
-        <input onChange={this.handleInput} value={this.state.inInput} />
+        <select name='Selecione' ></select>
+        <input name='check' type='checkbox' />
+        <input name='Escreva' onChange={this.handleChange} value={this.state.Escreva} />
       </form>
     );
   }
