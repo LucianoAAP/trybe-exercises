@@ -5,20 +5,28 @@ class Select extends React.Component {
   render() {
     const {name, onChange, value} = this.props;
     return (
-      <select name={name} onChange={onChange} value={value} >
+      <label>
+        {value.length ? '' : 'Escolha algo!'}
+        <select name={name} onChange={onChange} value={value} >
         <option value=''>Selecione</option>
         <option value='Opção 1'>Opção 1</option>
         <option value='Opção 2'>Opção 2</option>
       </select>
+      </label>
     );
   }
 }
 
-class Input extends React.Component {
+class Fieldset extends React.Component {
   render() {
-    const {name, type, onChange, value} = this.props;
+    const {escrevaValue, checkValue, handleChange} = this.props;
     return (
-      <input name={name} type={type} onChange={onChange} value={value} />
+      <fieldset>
+        <legend>Inputs</legend>
+        <input name='check' type='checkbox' onChange={handleChange} value={checkValue} />{checkValue === false ? 'Check here' : ''}
+        <input name='Escreva' onChange={handleChange} value={escrevaValue} />{escrevaValue.length ? '' : 'Escreva algo!'}
+        <input name='subir' type="file" ref={this.fileInput} />
+      </fieldset>
     );
   }
 }
@@ -49,12 +57,7 @@ class App extends React.Component {
     return (
       <form>
         <Select name='Selecione' onChange={this.handleChange} value={Selecione} />
-        <fieldset>
-          <legend>Inputs</legend>
-          <Input name='check' type='checkbox' onChange={this.handleChange} value={check} />Check here
-          <Input name='Escreva' onChange={this.handleChange} value={Escreva} />
-          <Input name='subir' type="file" ref={this.fileInput} />
-        </fieldset>
+        <Fieldset handleChange={this.handleChange} escrevaValue={Escreva} checkValue={check} />
       </form>
     );
   }
