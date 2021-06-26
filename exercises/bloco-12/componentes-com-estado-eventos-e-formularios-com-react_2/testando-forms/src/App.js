@@ -5,9 +5,11 @@ class App extends React.Component {
   constructor () {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.fileInput = React.createRef();
     this.state = {
       Escreva: '',
       Selecione: '',
+      check: false,
     }
   }
 
@@ -21,11 +23,20 @@ class App extends React.Component {
   }
 
   render() {
+    const {Escreva, Selecione, check} = this.state;
     return (
       <form>
-        <select name='Selecione' ></select>
-        <input name='check' type='checkbox' />
-        <input name='Escreva' onChange={this.handleChange} value={this.state.Escreva} />
+        <select name='Selecione' onChange={this.handleChange} value={Selecione} >
+          <option value=''>Selecione</option>
+          <option value='Opção 1'>Opção 1</option>
+          <option value='Opção 2'>Opção 2</option>
+        </select>
+        <fieldset>
+          <legend>Inputs</legend>
+          <input name='check' type='checkbox' onChange={this.handleChange} value={check} />Check here
+          <input name='Escreva' onChange={this.handleChange} value={Escreva} />
+          <input name='subir' type="file" ref={this.fileInput} />
+        </fieldset>
       </form>
     );
   }
