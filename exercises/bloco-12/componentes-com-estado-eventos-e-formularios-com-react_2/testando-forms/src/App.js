@@ -35,11 +35,13 @@ class App extends React.Component {
   constructor () {
     super();
     this.handleChange = this.handleChange.bind(this);
+    this.handleErrors = this.handleErrors.bind(this);
     this.fileInput = React.createRef();
     this.state = {
       Escreva: '',
       Selecione: '',
       check: false,
+      errors: true,
     }
   }
 
@@ -49,15 +51,24 @@ class App extends React.Component {
   
     this.setState({
       [name]: value,
-    });
+    },
+    () => this.handleErrors());
+  }
+
+  handleErrors() {
+    const {Escreva, check, Selecione} = this.state;
+    Escreva === '' || check === false || Selecione === ''
+    ? this.setState({errors: true})
+    : this.setState({errors: false})
   }
 
   render() {
-    const {Escreva, Selecione, check} = this.state;
+    const {Escreva, Selecione, check, errors} = this.state;
     return (
       <form>
         <Select name='Selecione' onChange={this.handleChange} value={Selecione} />
         <Fieldset handleChange={this.handleChange} escrevaValue={Escreva} checkValue={check} />
+        <span>{errors === true ? 'Faça o que está sendo mandado!' : ''}</span>
       </form>
     );
   }
