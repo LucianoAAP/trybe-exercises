@@ -8,10 +8,10 @@ class Select extends React.Component {
       <label>
         {value.length ? '' : 'Escolha algo!'}
         <select name={name} onChange={onChange} value={value} >
-        <option value=''>Selecione</option>
-        <option value='Opção 1'>Opção 1</option>
-        <option value='Opção 2'>Opção 2</option>
-      </select>
+          <option value=''>Selecione</option>
+          <option value='Opção 1'>Opção 1</option>
+          <option value='Opção 2'>Opção 2</option>
+        </select>
       </label>
     );
   }
