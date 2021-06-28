@@ -11,27 +11,27 @@ class DadosPessoais extends React.Component {
       <fieldset>
         <label>
           Nome:
-          <input name='nome' type='name' maxLength='40' value={ nameValue } onChange={ handleChange } />
+          <input name='nome' type='name' maxLength='40' value={ nameValue } required onChange={ handleChange } />
         </label>
         <label>
           Email:
-          <input name='email' type='email' maxLength='50' value={ emailValue } onChange={ handleChange } />
+          <input name='email' type='email' maxLength='50' value={ emailValue } required onChange={ handleChange } />
         </label>
         <label>
           CPF;
-          <input name='cpf' maxLength='11' value={ cpfValue } onChange={ handleChange } />
+          <input name='cpf' maxLength='11' value={ cpfValue } required onChange={ handleChange } />
         </label>
         <label>
           Endereço:
-          <input name='endereço' maxLength='200' value={ endereçoValue } onChange={ handleChange } />
+          <input name='endereço' maxLength='200' value={ endereçoValue } required onChange={ handleChange } />
         </label>
         <label>
           Cidade:
-          <input name='cidade' maxLength='28' value={ cidadeValue } onChange={ handleChange } onBlur={ handleBlur } />
+          <input name='cidade' maxLength='28' value={ cidadeValue } required onChange={ handleChange } onBlur={ handleBlur } />
         </label>
         <label>
           Estado:
-          <select name='estado' value={ estadoValue } onChange={ handleChange }>
+          <select name='estado' value={ estadoValue } required onChange={ handleChange }>
             <option value=''>Selecione o estado</option>
             {states.map((estado) => <option key={ estado } value={ estado }>{ estado }</option>)}
           </select>
@@ -53,6 +53,8 @@ DadosPessoais.propTypes = {
   endereçoValue : PropTypes.string.isRequired,
   cidadeValue: PropTypes.string.isRequired,
   estadoValue: PropTypes.string.isRequired,
+  handleChange: PropTypes.func.isRequired,
+  handleBlur: PropTypes.func.isRequired,
 }
 
 export default DadosPessoais;

@@ -8,11 +8,11 @@ class UltimoEmprego extends React.Component {
       <fieldset>
         <label>
           Resumo do último emprego:
-          <textarea name='resumo' maxLength='1000' value={ resumoValue } onChange={ handleChange } />
+          <textarea name='resumo' maxLength='1000' value={ resumoValue } required onChange={ handleChange } />
         </label>
         <label>
           Descrição do cargo:
-          <textarea name='descriçao' maxLength='500' value={ descriçaoValue } onChange={ handleChange } />
+          <textarea name='descriçao' maxLength='500' value={ descriçaoValue } required onChange={ handleChange } />
         </label>
       </fieldset>
     );
