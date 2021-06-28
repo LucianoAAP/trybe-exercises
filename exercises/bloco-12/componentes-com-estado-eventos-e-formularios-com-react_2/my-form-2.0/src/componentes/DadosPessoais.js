@@ -33,7 +33,7 @@ class DadosPessoais extends React.Component {
           Estado:
           <select name='estado' value={ estadoValue } onChange={ handleChange }>
             <option value=''>Selecione o estado</option>
-            {states.map((estado) => <option value={ estado }>{ estado }</option>)}
+            {states.map((estado) => <option key={ estado } value={ estado }>{ estado }</option>)}
           </select>
         </label>
         <label>
@@ -49,7 +49,7 @@ class DadosPessoais extends React.Component {
 DadosPessoais.propTypes = {
   nameValue: PropTypes.string.isRequired,
   emailValue: PropTypes.string.isRequired,
-  cpfValue: PropTypes.number.isRequired,
+  cpfValue: PropTypes.string.isRequired,
   endereçoValue : PropTypes.string.isRequired,
   cidadeValue: PropTypes.string.isRequired,
   estadoValue: PropTypes.string.isRequired,

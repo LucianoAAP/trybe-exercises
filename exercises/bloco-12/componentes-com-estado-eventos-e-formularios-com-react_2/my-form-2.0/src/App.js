@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import DadosPessoais from './componentes/DadosPessoais';
+import UltimoEmprego from './componentes/UltimoEmprego';
 
 class App extends React.Component {
   constructor() {
@@ -10,11 +11,13 @@ class App extends React.Component {
     this.state = {
       nome: '',
       email: '',
-      cpf: 0,
+      cpf: '',
       endereço: '',
       cidade: '',
       estado: '',
       residencia: '',
+      resumo: '',
+      descriçao: '',
     }
   }
 
@@ -35,10 +38,11 @@ class App extends React.Component {
   }
 
   render() {
-    const { nome, email, cpf, endereço, cidade, estado } = this.state;
+    const { nome, email, cpf, endereço, cidade, estado, resumo, descriçao } = this.state;
     return (
       <form>
         <DadosPessoais nameValue={ nome } emailValue={ email } cpfValue={ cpf } endereçoValue={ endereço } cidadeValue={ cidade } estadoValue={ estado } handleChange={ this.handleChange } handleBlur={ this.handleBlur } />
+        <UltimoEmprego resumoValue={ resumo } descriçaoValue={ descriçao } handleChange={ this.handleChange } />
       </form>
     );
   }
