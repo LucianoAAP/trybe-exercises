@@ -31,12 +31,63 @@
       <p>Color: <span id="value">white</span></p>
       <button id="previous">Previous color</button>
       <button id="next">Next color</button>
+      <button id="random">Random color</button>
     </div>
     <script>
+
       const ESTADO_INICIAL = {
         colors: ['white', 'black', 'red', 'green', 'blue', 'yellow'],
         index: 0,
       };
+
+      const nextColor = () => ({ type: 'NEXT_COLOR' });
+      const previousColor = () => ({ type: 'PREVIOUS_COLOR' });
+      const randomColor = () => ({ type: 'RANDOM_COLOR' });
+
+      const myReducer = (state = ESTADO_INICIAL, action) => {
+        switch (action.type) {
+          case 'NEXT_COLOR':
+            if (state.index === state.colors.length - 1) return { ...state, index: 0 };
+            return {
+              ...state,
+              index: state.index + 1,
+            };
+          case 'PREVIOUS_COLOR':
+            if (state.index === 0) return { ...state, index: state.colors.length - 1 };
+            return {
+              ...state,
+              index: state.index - 1,
+            };
+          case 'RANDOM_COLOR':
+            const createColor = () => {
+              const min = 0;
+              const max = state.colors.length - 1;
+              return Math.floor(Math.random() * (max - min + 1)) + min;
+            };
+            return {
+              ...state,
+              index: createColor(),
+            };
+          default:
+            return state;
+        }
+      }
+
+      const store = Redux.createStore(myReducer);
+
+      const nextButton = document.querySelector('#next');
+      const previousButton = document.querySelector('#previous');
+      const randomButton = document.querySelector('#random');
+      nextButton.addEventListener('click', () => { store.dispatch(nextColor()) });
+      previousButton.addEventListener('click', () => { store.dispatch(previousColor()) });
+      randomButton.addEventListener('click', () => { store.dispatch(randomColor()) });
+
+      store.subscribe(() => {
+        const { colors, index } = store.getState();
+        document.querySelector('#value').innerHTML = colors[index];
+        document.querySelector('#container').style.backgroundColor = colors[index];
+      });
+
     </script>
   </body>
 </html>
