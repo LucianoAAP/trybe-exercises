@@ -9,7 +9,7 @@ const generateResult = (number) => {
 };
 
 const startGame = () => {
-  const number = readline.questionInt('Digite um número: ');
+  const number = readline.questionInt('Digite um número de 0 a 10: ');
   generateResult(number);
   playAgain();
 };
@@ -20,3 +20,5 @@ const playAgain = () => {
 };
 
 startGame();
+
+module.exports = startGame;

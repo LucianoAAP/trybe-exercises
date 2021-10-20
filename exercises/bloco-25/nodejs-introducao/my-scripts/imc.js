@@ -18,3 +18,5 @@ const imc = getImc(weight, height);
 
 console.log(imc);
 showImcClassification(imc);
+
+module.exports = { getImc, showImcClassification };
