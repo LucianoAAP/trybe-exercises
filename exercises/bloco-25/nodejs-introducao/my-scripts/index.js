@@ -15,6 +15,9 @@ const rodarScript = () => {
     case 4:
       require('./fatorial');
       break;
+    case 5:
+      require('./fibonacci');
+      break;
     default:
       console.log('Número inválido');
       break;
@@ -25,7 +28,8 @@ console.log({
   imc: 1,
   velocidade: 2,
   sorteio: 3,
-  fatorial: 4
+  fatorial: 4,
+  fibonacci: 5
 });
 
 rodarScript();

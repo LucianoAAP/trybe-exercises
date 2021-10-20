@@ -1,9 +1,11 @@
 const readline = require('readline-sync');
 
-const getFatorial = (number) => {
-  let result = 1;
-  for (let index = number; index >= 1; index -= 1) {
-    result = result * index;
+const getFibonacci = (n) => {
+  const result = [];
+  for (let index = 0; index < n; index += 1) {
+    if (index === 0) result.push(1);
+    else if (index === 1) result.push(2);
+    else result.push(result[index - 1] + result[index - 2]);
   }
   return result;
 };
@@ -11,7 +13,7 @@ const getFatorial = (number) => {
 const getNumber = () => {
   const number = readline.questionInt('Digite um número inteiro maior que 0: ');
   if (number > 0) {
-    console.log(getFatorial(number));
+    console.log(getFibonacci(number));
   } else {
     console.log('Número inválido!');
     getNumber();
