@@ -1,3 +1,5 @@
+const readline = require('readline-sync');
+
 const getImc = (weight, height) => weight / (height ** 2);
 
 const showImcClassification = (imc) => {
@@ -9,4 +11,10 @@ const showImcClassification = (imc) => {
   else if (imc >= 40) console.log('Obesidade graus III e IV');
 };
 
-module.exports = { getImc, showImcClassification };
+const weight = readline.questionFloat('Qual seu peso (em kg)?');
+const height = readline.questionFloat('Qual sua altura (em m)?');
+
+const imc = getImc(weight, height);
+
+console.log(imc);
+showImcClassification(imc);
