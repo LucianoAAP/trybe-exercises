@@ -1,3 +1,7 @@
 const getImc = require('./imc');
+const readline = require('readline-sync');
 
-console.log(getImc(65, 1.82));
+const weight = readline.questionInt('Qual seu peso (em kg)?');
+const height = readline.questionFloat('Qual sua altura (em m)?');
+
+console.log(getImc(weight, height));
