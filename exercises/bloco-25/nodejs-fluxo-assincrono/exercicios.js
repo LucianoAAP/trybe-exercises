@@ -9,8 +9,16 @@ const ex1 = (x, y, z) => {
   });
 };
 
-const a = Math.floor(Math.random() * 100 + 1);
-const b = Math.floor(Math.random() * 100 + 1);
-const c = Math.floor(Math.random() * 100 + 1);
+const ex3 = async () => {
+  const a = Math.floor(Math.random() * 100 + 1);
+  const b = Math.floor(Math.random() * 100 + 1);
+  const c = Math.floor(Math.random() * 100 + 1);
+  try {
+    const result = await ex1(a, b, c);
+    console.log(result);
+  } catch (e) {
+    console.log(e.message);
+  }
+};
 
-ex1(a, b, c).then((r) => console.log(r)).catch((e) => console.log(e.message));
+ex3();
