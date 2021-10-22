@@ -31,6 +31,14 @@ describe('testa getPlusMinus', () => {
 });
 
 describe('testa writeInFile', () => {
+  before(() => {
+    sinon.stub(fs, 'writeFile');
+  });
+
+  after(() => {
+    fs.writeFile.restore();
+  });
+
   it('testa se é string', () => {
     const resposta = writeInFile('writtenFile.txt', 'ronaldo');
     expect(resposta).to.be.a('string');
