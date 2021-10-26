@@ -3,10 +3,21 @@ const bodyParser = require('body-parser');
 const fs = require('fs/promises');
 const crypto = require('crypto');
 
+const generateToken = () => crypto.randomBytes(8).toString('hex');
+
+const auth = (req, res, next) => {
+  const { authorization } = req.headers;
+
+  if (!authorization || authorization.length !== 16) {
+    return res.status(401).json({ message: 'Token inválido!' });
+  }
+
+  return next();
+};
+
 const app = express();
 app.use(bodyParser.json());
-
-const generateToken = () => crypto.randomBytes(8).toString('hex');
+// app.use(auth);
 
 app.get('/ping', (_req, res) => res.json({ message: 'pong' }));
 
