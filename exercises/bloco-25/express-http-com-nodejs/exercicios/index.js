@@ -1,9 +1,12 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const fs = require('fs/promises');
+const crypto = require('crypto');
 
 const app = express();
 app.use(bodyParser.json());
+
+const generateToken = () => crypto.randomBytes(8).toString('hex');
 
 app.get('/ping', (_req, res) => res.json({ message: 'pong' }));
 
@@ -45,6 +48,15 @@ app.post('/simpsons', async (req, res) => {
   const newSimpsons = [...simpsons, { id, nome }];
   await fs.writeFile('./simpsons.json', JSON.stringify(newSimpsons));
   res.status(204).end();
+});
+
+app.post('/signup', (req, res) => {
+  const { email, password, firstName, phone } = req.body;
+  if (!email || !password || !firstName || !phone) {
+    return res.status(401).json({ message: 'missing fields' });
+  }
+  const token = generateToken();
+  return res.status(200).json({ token });
 });
 
 app.use((err, _req, res, _next) => res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`));
