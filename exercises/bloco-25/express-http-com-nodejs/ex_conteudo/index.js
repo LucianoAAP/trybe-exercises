@@ -1,6 +1,8 @@
 const express = require('express');
+const bodyParser = require('body-parser');
 
 const app = express();
+app.use(bodyParser.json());
 
 const drinks = [
   { id: 1, name: 'Refrigerante Lata', price: 5.0 },
@@ -29,6 +31,12 @@ app.get('/drinks/:id', function (req, res) {
   if (!drink) return res.status(404).json({ message: 'Drink not found!'});
 
   res.status(200).json(drink);
+});
+
+app.post('/drinks', function (req, res) {
+  const { id, name, price } = req.body;
+  drinks.push({ id, name, price});
+  res.status(201).json({ message: 'Drink created successfully!'});
 });
 
 app.listen(3001, () => {
