@@ -1,5 +1,6 @@
 const express = require('express');
 const bodyParser = require('body-parser');
+const fs = require('fs/promises');
 
 const app = express();
 app.use(bodyParser.json());
@@ -20,6 +21,11 @@ app.post('/greetings', (req, res) => {
 app.put('/users/:name/:age', (req, res) => {
   const { name, age } = req.params;
   return res.status(200).json({ message: `Seu nome é ${name} e você tem ${age} anos de idade` });
+});
+
+app.get('/simpsons', async (_req, res) => {
+  const simpsons = await fs.readFile('./simpsons.json', 'utf-8').then((r) => JSON.parse(r));
+  return res.status(200).json(simpsons);
 });
 
 app.use((err, _req, res, _next) => res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`));
