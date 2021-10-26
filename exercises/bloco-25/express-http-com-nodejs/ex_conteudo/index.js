@@ -15,6 +15,15 @@ app.get('/drinks', function (_req, res) {
   res.json(drinks.sort((a, b) => a.name > b.name ? 1: -1));
 });
 
+app.get('/drinks/:id', function (req, res) {
+  const { id } = req.params;
+  const drink = drinks.find((r) => r.id === parseInt(id));
+
+  if (!drink) return res.status(404).json({ message: 'Drink not found!'});
+
+  res.status(200).json(drink);
+});
+
 app.listen(3001, () => {
   console.log('Aplicação ouvindo na porta 3001');
 });
