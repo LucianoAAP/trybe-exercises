@@ -11,8 +11,12 @@ app.post('/hello', (req, res) => {
   return res.status(200).json({ message: `Hello, ${name}!` });
 });
 
-app.use(function (err, req, res, next) {
-  res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`);
+app.post('/greetings', (req, res) => {
+  const { name, age } = req.body;
+  if (parseInt(age) > 17) return res.status(200).json({ message: `Hello, ${name}!` });
+  return res.status(401).json({ message: 'Unauthorized' });
 });
+
+app.use((err, _req, res, _next) => res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`));
 
 app.listen(3000, () => console.log('ouvindo na porta 3000!'));
