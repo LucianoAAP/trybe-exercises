@@ -28,6 +28,14 @@ app.get('/simpsons', async (_req, res) => {
   return res.status(200).json(simpsons);
 });
 
+app.get('/simpsons/:id', async (req, res) => {
+  const { id } = req.params;
+  const simpsons = await fs.readFile('./simpsons.json', 'utf-8').then((r) => JSON.parse(r));
+  const simpson = simpsons.find((simpson) => simpson.id === id);
+  if (!simpson) return res.status(404).json({ message: 'simpson not found' });
+  return res.status(200).json(simpson);
+});
+
 app.use((err, _req, res, _next) => res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`));
 
 app.listen(3000, () => console.log('ouvindo na porta 3000!'));
