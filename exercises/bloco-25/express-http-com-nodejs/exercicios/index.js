@@ -36,6 +36,17 @@ app.get('/simpsons/:id', async (req, res) => {
   return res.status(200).json(simpson);
 });
 
+app.post('/simpsons', async (req, res) => {
+  const { id, nome } = req.body;
+  const simpsons = await fs.readFile('./simpsons.json', 'utf-8').then((r) => JSON.parse(r));
+  if (simpsons.find((simpson) => simpson.id === id)) {
+    return res.status(409).json({ message: 'id already exists' });
+  }
+  const newSimpsons = [...simpsons, { id, nome }];
+  await fs.writeFile('./simpsons.json', JSON.stringify(newSimpsons));
+  res.status(204).end();
+});
+
 app.use((err, _req, res, _next) => res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`));
 
 app.listen(3000, () => console.log('ouvindo na porta 3000!'));
