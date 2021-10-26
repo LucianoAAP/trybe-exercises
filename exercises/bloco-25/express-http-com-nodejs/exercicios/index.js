@@ -17,6 +17,11 @@ app.post('/greetings', (req, res) => {
   return res.status(401).json({ message: 'Unauthorized' });
 });
 
+app.put('/users/:name/:age', (req, res) => {
+  const { name, age } = req.params;
+  return res.status(200).json({ message: `Seu nome é ${name} e você tem ${age} anos de idade` });
+});
+
 app.use((err, _req, res, _next) => res.status(500).send(`Algo deu errado! Mensagem: ${err.message}`));
 
 app.listen(3000, () => console.log('ouvindo na porta 3000!'));
