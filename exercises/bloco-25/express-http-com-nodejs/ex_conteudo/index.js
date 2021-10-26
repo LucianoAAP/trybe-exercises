@@ -15,6 +15,13 @@ app.get('/drinks', function (_req, res) {
   res.json(drinks.sort((a, b) => a.name > b.name ? 1: -1));
 });
 
+app.get('/drinks/search', function (req, res) {
+  const { name, maxPrice, minPrice } = req.query;
+  const filteredDrinks = drinks
+    .filter((r) => r.name.includes(name) && r.price < parseInt(maxPrice) && r.price >= minPrice);
+  res.status(200).json(filteredDrinks);
+});
+
 app.get('/drinks/:id', function (req, res) {
   const { id } = req.params;
   const drink = drinks.find((r) => r.id === parseInt(id));
