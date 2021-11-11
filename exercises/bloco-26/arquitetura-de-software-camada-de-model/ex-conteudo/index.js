@@ -9,7 +9,7 @@ const Book = require('./models/Book');
 app.get('/books', async (_req, res) => {
   const books = await Book.getAll();
 
-  res.status(200).json(books);
+  return res.status(200).json(books);
 });
 
 app.get('/books/search', async (req, res) => {
@@ -17,9 +17,9 @@ app.get('/books/search', async (req, res) => {
 
   const books = await Book.getByAuthorId(author_id);
 
-  if (!books) return res.status(404).json({ message: 'Inválid author id' });
+  if (!books) return res.status(404).json({ message: 'Not found' });
 
-  res.status(200).json(books);
+  return res.status(200).json(books);
 });
 
 app.get('/books/:id', async (req, res) => {
@@ -29,7 +29,18 @@ app.get('/books/:id', async (req, res) => {
 
   if (!book) return res.status(404).json({ message: 'Not found' });
 
-  res.status(200).json(book);
+  return res.status(200).json(book);
+});
+
+app.post('/books', async (req, res) => {
+  const { title, author_id } = req.body;
+  const response = await Book.isValid(title, author_id);
+
+  if (!response) return res.status(400).json({ message: 'Invalid data' });
+
+  await Book.create(title, author_id);
+
+  return res.status(201).json({ message: 'Book succesfully created!'});
 });
 
 const PORT = process.env.PORT || 3000;
