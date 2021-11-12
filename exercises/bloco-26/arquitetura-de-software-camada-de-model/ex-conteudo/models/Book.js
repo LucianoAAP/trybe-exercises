@@ -43,37 +43,31 @@ const { ObjectId } = require('mongodb');
 //     );
 // };
 
+const formateBooks = (books) => books.map(({ _id, title, author_id }) => ({
+    id: _id,
+    title,
+    authorId: author_id,
+  }));
+
 const getAll = async () => {
-    return connection()
+    return await connection()
         .then((db) => db.collection('books').find().toArray())
-        .then((books) =>
-            books.map(({ _id, title, author_id }) => ({ id: _id, title, authorId: author_id })));
+        .then((books) => formateBooks(books));
 };
 
 const getByAuthorId = async (author_id) => {
-    return connection()
-        .then((db) => db.collection('books').find({ author_id: Number(author_id) }).toArray())
-        .then((books) =>
-            books.map(({ _id, title, author_id }) => ({ id: _id, title, authorId: author_id })));
+    const books = await connection()
+        .then((db) => db.collection('books').find({ author_id: Number(author_id) }).toArray());
+    if (books.length === 0) return [];
+    return formateBooks(books);
 };
 
 const getById = async (id) => {
-    if (!ObjectId.isValid(id)) {
-        return null;
-    }
-    const book = await connection()
-        .then((db) => db.collection('books').findOne(new ObjectId(id)));
+    if (!ObjectId.isValid(id)) return null;
+    const book = await connection().then((db) => db.collection('books').findOne(new ObjectId(id)));
     if (!book) return null;
     const { _id, title, author_id } = book;
     return { id: _id, title, authorId: author_id };
-};
-
-const isValid = async (title, author_id) => {
-    if (!title || typeof title !== 'string') return false;
-    const author = await connection()
-        .then((db) => db.collection('books').find({ author_id: Number(author_id) }).toArray());
-    if (!author_id || author.length === 0) return false;
-    return true;
 };
 
 const create = async (title, author_id) => {
@@ -84,6 +78,5 @@ module.exports = {
     getAll,
     getByAuthorId,
     getById,
-    isValid,
     create,
 };
