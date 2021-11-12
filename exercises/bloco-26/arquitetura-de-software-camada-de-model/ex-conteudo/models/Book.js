@@ -36,8 +36,8 @@ const { ObjectId } = require('mongodb');
 //     return true;
 // };
 
-// const create = (title, author_id) => {
-//     return connection.execute(
+// const create = async (title, author_id) => {
+//     return await connection.execute(
 //         'INSERT INTO model_example.books (title, author_id) VALUES (?,?)',
 //         [title, author_id],
 //     );
@@ -76,8 +76,8 @@ const isValid = async (title, author_id) => {
     return true;
 };
 
-const create = (title, author_id) => {
-    return connection().then((db) => db.collection('books').insertOne({ title, author_id }));
+const create = async (title, author_id) => {
+    return await connection().then((db) => db.collection('books').insertOne({ title, author_id }));
 };
 
 module.exports = {
