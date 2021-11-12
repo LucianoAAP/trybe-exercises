@@ -1,7 +1,8 @@
 const express = require('express');
 const rescue = require('express-rescue');
 const errorMiddleware = require('./middleware/error');
-const User = require('./models/mongo/User.js');
+// const User = require('./models/mongo/User.js');
+const User = require('./models/sql/User.js');
 
 const app = express();
 
