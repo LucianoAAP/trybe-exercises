@@ -11,14 +11,6 @@ const getByCEP = async (cep) => {
 };
 
 const createCEP = async ({ cep, logradouro, bairro, localidade, uf }) => {
-  const { error } = Joi.object({
-    cep: Joi.string().regex(/\d{5}-\d{3}/).required(),
-    logradouro: Joi.string().not().empty().required(),
-    bairro: Joi.string().not().empty().required(),
-    localidade: Joi.string().not().empty().required(),
-    uf: Joi.string().not().empty().required().length(2),
-  }).validate({ cep, logradouro, bairro, localidade, uf });
-  if (error) return error;
   const oldCEPData = await CEP.getByCEP(cep);
   if (oldCEPData) return { error: { code: 'alreadyExists', message: 'CEP já existente', status: 409 } };
   await CEP.createCEP({ cep, logradouro, bairro, localidade, uf });
