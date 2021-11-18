@@ -39,8 +39,18 @@ const create = async ({ title, directedBy, releaseYear }) => {
   };
 };
 
+const deleteMovie = async (id) => {
+  const movie = await getById(id);
+  if (!movie) return null;
+  const { title, directedBy, releaseYear } = movie;
+  await mongoConnection.getConnection()
+    .then((db) => db.collection('movies').deleteOne({ _id: ObjectId(id) }));
+  return { id, title, directedBy, releaseYear };
+};
+
 module.exports = {
   create,
   getAll,
   getById,
+  deleteMovie,
 };

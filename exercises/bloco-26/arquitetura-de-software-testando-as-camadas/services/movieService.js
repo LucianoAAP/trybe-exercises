@@ -40,8 +40,15 @@ const create = async ({ title, directedBy, releaseYear }) => {
   };
 };
 
+const deleteMovie = async (id) => {
+  const movie = await MoviesModel.deleteMovie(id);
+  if (!movie) return { error: { status: 404, code: 'Not Found', message: 'Filme não encontrado' } };
+  return movie;
+};
+
 module.exports = {
   create,
   getAll,
   getById,
+  deleteMovie,
 };
