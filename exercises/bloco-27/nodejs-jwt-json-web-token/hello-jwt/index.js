@@ -25,6 +25,7 @@ app.get('/ping', controllers.ping);
 app.get('/users/me', middlewares.auth, controllers.users.me);
 app.get('/top-secret', middlewares.auth, middlewares.admin, controllers.topSecret);
 app.post('/login', controllers.login);
+app.post('/signup', controllers.signup);
 
 app.use(middlewares.error);
 

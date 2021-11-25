@@ -2,6 +2,7 @@ const rescue = require('express-rescue');
 const Joi = require('joi');
 const jwt = require('jsonwebtoken');
 const secret = 'seusecretdetoken';
+const users = require('../services/users.js');
 
 const validateBody = (body) => (Joi.object({
     username: Joi.string().min(5).alphanum().required(),
@@ -16,15 +17,17 @@ const verifyAdmin = (username, password) => {
   return false
 };
 
-module.exports = rescue((req, res, next) => {
+module.exports = rescue(async (req, res, next) => {
   const { username, password } = req.body;
   if (validateBody(req.body).error) return next(validateBody(req.body).error);
   const jwtConfig = {
     expiresIn: '1h',
   };
-  const admin = verifyAdmin(username, password);
-  if (admin.error) return next(admin.error);
-  const payload = { username, admin };
+  // const admin = verifyAdmin(username, password);
+  // if (admin.error) return next(admin.error);
+  const user = await users.login(username, password);
+  if (user.error) return next(user.error);
+  const payload = { username, admin: user.admin };
   const token = jwt.sign(payload, secret, jwtConfig);
   return res.status(200).json({ token });
 });
