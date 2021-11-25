@@ -50,9 +50,14 @@ const fileFilter = (req, file, cb) => {
 
 
 const upload = multer({ storage, fileFilter });
+const uploadMany = multer({ dest: 'uploads' });
+const uploadNewProfile = multer({ dest: 'profilePics' });
 
 app.get('/ping', controllers.ping);
+app.get('/profile/:id', controllers.getProfile);
 app.post('/upload', upload.single('file'), controllers.uploadOne);
+app.post('/multiple', uploadMany.array('files'), controllers.uploadMultiple);
+app.post('/profile', uploadNewProfile.single('profilePic'), controllers.uploadProfile);
 
 app.use(middlewares.error);
 
