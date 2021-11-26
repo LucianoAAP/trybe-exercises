@@ -30,7 +30,7 @@ const storage = multer.diskStorage({
   },
   filename: (_req, file, callback) => {
     const newName = file.originalname.split('.')
-      .filter((_str, index) => index !== file.originalname.split('.').length - 1).join('');
+      .filter((_str, index) => index !== file.originalname.split('.').length - 1).join('.');
     callback(null, `${newName}-${Date.now()}`);
   }});
 
