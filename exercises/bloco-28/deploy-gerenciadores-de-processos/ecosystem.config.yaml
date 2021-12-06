@@ -1,0 +1,22 @@
+apps:
+
+- name: xablau
+  script: ./index.js
+  watch: ./
+  exec_mode: cluster
+  instances: 2
+  max_memory_restart: 100M
+  env_prod:
+    ENVIRONMENT: PRODUCTION
+  env_homolog:
+    ENVIRONMENT: HOMOLOG
+- name: xablimba
+  script: ./index2.js
+  watch: ./
+  exec_mode: cluster
+  instances: 2
+  max_memory_restart: 100M
+  env_prod:
+    ENVIRONMENT: PRODUCTION
+  env_homolog:
+    ENVIRONMENT: HOMOLOG
