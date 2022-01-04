@@ -1,0 +1,23 @@
+{
+  "development": {
+    "username": "lucianoaap",
+    "password": "gatouber",
+    "database": "ex_sequelize",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "test": {
+    "username": "lucianoaap",
+    "password": "gatouber",
+    "database": "ex_sequelize",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  },
+  "production": {
+    "username": "lucianoaap",
+    "password": "gatouber",
+    "database": "ex_sequelize",
+    "host": "127.0.0.1",
+    "dialect": "mysql"
+  }
+}
