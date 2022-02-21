@@ -1,0 +1,10 @@
+../animais/animais_fofinhos.txt
+../animais/animais_raivosos.txt
+../animais/arquivos_listados_ordenados.txt
+../animais/cores.txt
+../animais/fofinhos_raivosos.txt
+../animais/historico.txt
+../animais/nomes_e_cores.txt
+../animais/nomes.txt
+../countries.txt
+../phrases.txt

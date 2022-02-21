@@ -1,0 +1,5 @@
+   43  who
+   44  rm -rf diretorio_qualquer
+   45  ls
+   46  history
+   47  history | tail -n 3
