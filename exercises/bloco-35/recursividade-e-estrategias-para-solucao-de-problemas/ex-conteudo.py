@@ -9,8 +9,8 @@ def get_reverse(list):
     # list.reverse()
     # return list
     reversed_list = []
-    for item in range(len(list) - 1, -1, -1):
-        reversed_list.append(item)
+    for index in range(len(list) - 1, -1, -1):
+        reversed_list.append(list[index])
     return reversed_list
 
 
