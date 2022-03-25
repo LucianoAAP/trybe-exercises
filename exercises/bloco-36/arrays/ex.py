@@ -46,30 +46,6 @@ def get_number_of_students_in_library(entries, exits, instant):
 def get_number_of_communicating_servers(array):
     servers = []
     count = 0
-    # for index1, line in enumerate(array):
-    #     for index2, item in enumerate(line):
-    #         if index2 == 0 and len(line) > 1:
-    #             if line[index2 + 1] == item:
-    #                 count += 1
-    #         elif index2 == len(line) - 1 and len(line) > 1:
-    #             if line[index2 - 1] == item:
-    #                 count += 1
-    #         else:
-    #             if line[index2 + 1] == item or line[index2 - 1] == item:
-    #                 count += 1
-
-    #     for index2, item in enumerate(line):
-    #         if index1 == 0 and len(array) > 1:
-    #             if array[0][index2] == array[1][index2]:
-    #                 count += 1
-    #         elif index1 == len(array) - 1 and len(array) > 1:
-    #             if array[index1][index2] == array[index1 - 1][index2]:
-    #                 count += 1
-    #         else:
-    #             if array[index1][index2] == array[index1 + 1][index2]:
-    #                 count += 1
-    #             if array[index1][index2] == array[index1 + 1][index2]:
-    #                 count += 1
 
     for index1, line in enumerate(array):
         for index2, item in enumerate(line):
