@@ -34,6 +34,32 @@ class Conjunto:
                 intersection.append(value)
         return intersection
 
+    def difference(self, conjuntoB):
+        diff = []
+        for value in self.list:
+            if (
+                value is not False
+                and (conjuntoB[value] is None or conjuntoB[value] is False)
+               ):
+               diff.append(value)
+        return diff
+
+    def issubset(self, conjuntoB):
+        subset = True
+        for value in self.list:
+            if value is not False and value not in conjuntoB:
+                subset = False
+                break
+        return subset
+
+    def issuperset(self, conjuntoB):
+        superset = True
+        for value in conjuntoB:
+            if value is not False and value not in self.list:
+                superset = False
+                break
+        return superset
+
 
 def find_duplicated(list):
     duplicated = set()
@@ -60,6 +86,9 @@ if __name__ == "__main__":
         conjunto_b.add(value)
     print(conjunto_a.union(conjunto_b.list))
     print(conjunto_a.intersection(conjunto_b.list))
+    print(conjunto_a.difference(conjunto_b.list))
+    print(conjunto_a.issubset(conjunto_b.list))
+    print(conjunto_a.issuperset(conjunto_b.list))
     print(find_duplicated([1, 3, 2, 4, 5, 1]))
     estudantes = ['a', 'b', 'c', 'd', 'e', 'f', 'g']
     lista1_entregues = ['a', 'd', 'g', 'c']
@@ -72,4 +101,3 @@ if __name__ == "__main__":
     print(f'Entregaram as 2 listas {entregaram_tudo}')
     print(f'Entregaram uma lista {entregaram_uma}')
     print(f'Entregaram nenhuma lista {entregaram_nada}')
-
