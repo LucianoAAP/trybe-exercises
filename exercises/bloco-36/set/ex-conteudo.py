@@ -1,6 +1,6 @@
 class Conjunto:
     def __init__(self):
-        self.list = [False for i in range(1001)]
+        self.list = [False for _ in range(1001)]
 
     def add(self, item):
         self.list[item] = item
