@@ -21,13 +21,11 @@ class LinkedList:
 
     def insert_last(self, value):
         last_value = Node(value)
-        current_value = self.head_value
 
         if self.is_empty():
             return self.insert_first(value)
 
-        while current_value.next:
-            current_value = current_value.next
+        current_value = self.__get_node_at(len(self) - 1)
         current_value.next = last_value
         self.__length += 1
 
@@ -36,10 +34,7 @@ class LinkedList:
             return self.insert_first(value)
         if position >= len(self):
             return self.insert_last(value)
-        current_value = self.head_value
-        while position > 1:
-            current_value = current_value.next
-            position -= 1
+        current_value = self.__get_node_at(position - 1)
         next_value = Node(value)
         next_value.next = current_value.next
         current_value.next = next_value
@@ -59,8 +54,7 @@ class LinkedList:
 
         previous_to_be_removed = self.head_value
 
-        while previous_to_be_removed.next.next:
-            previous_to_be_removed = previous_to_be_removed.next
+        previous_to_be_removed = self.__get_node_at(len(self) - 2)
 
         value_to_be_removed = previous_to_be_removed.next
         previous_to_be_removed.next = None
@@ -73,11 +67,7 @@ class LinkedList:
         if position >= len(self):
             return self.remove_last()
 
-        previous_to_be_removed = self.head_value
-
-        while position > 1:
-            previous_to_be_removed = previous_to_be_removed.next
-            position -= 1
+        previous_to_be_removed = self.__get_node_at(position - 1)
 
         value_to_be_removed = previous_to_be_removed.next
         previous_to_be_removed.next = value_to_be_removed.next
@@ -88,20 +78,47 @@ class LinkedList:
 
     def get_element_at(self, position):
         value_returned = None
-        value_to_be_returned = self.head_value
+        value_to_be_returned = self.__get_node_at(position)
         if value_to_be_returned:
-            while position > 0 and value_to_be_returned.next:
-                value_to_be_returned = value_to_be_returned.next
-                position -= 1
-            if value_to_be_returned:
-                value_returned = Node(value_to_be_returned.value)
+            value_returned = Node(value_to_be_returned.value)
         return value_returned
 
     def is_empty(self):
         return not self.__length
 
+    def clear(self):
+        self.head_value = None
+        self.__length = 0
 
-# Para testar, apenas rode o arquivo com: `python3 linked_list_content.py` :)
+    def __get_node_at(self, position):
+        value_to_be_returned = self.head_value
+        if value_to_be_returned:
+            while position > 0 and value_to_be_returned.next:
+                value_to_be_returned = value_to_be_returned.next
+                position -= 1
+        return value_to_be_returned
+
+    def index_of(self, value):
+        position = 0
+        current_value = self.head_value
+        while current_value and current_value.value != value:
+            current_value = current_value.next
+            position += 1
+        if not current_value:
+            return -1
+        return position
+
+    def delete_duplicates(self):
+        list_with_unique_elements = self()
+
+        while self:
+            current_node = self.remove_first()
+            if list_with_unique_elements.index_of(current_node.value) == -1:
+                list_with_unique_elements.insert_last(current_node.value)
+
+        return list_with_unique_elements
+
+
 if __name__ == "__main__":
     linked_list = LinkedList()
 
